@@ -1,7 +1,7 @@
 package br.com.ifood.vehiclerouting.ga;
 
 import br.com.ifood.vehiclerouting.configuration.GAProperties;
-import br.com.ifood.vehiclerouting.entity.Custumer;
+import br.com.ifood.vehiclerouting.entity.Customer;
 import br.com.ifood.vehiclerouting.entity.Order;
 import br.com.ifood.vehiclerouting.entity.Position;
 import br.com.ifood.vehiclerouting.entity.Restaurant;
@@ -50,11 +50,11 @@ public class VehicleRoutingGATest {
         Restaurant r1 = new Restaurant(1,new Position(100.0, 100.0));
         Restaurant r2 = new Restaurant(2,new Position(200.0, 200.0));
 
-        Custumer c1 = new Custumer(1,new Position(100.2, 100.2));
-        Custumer c2 = new Custumer(2,new Position(100.3, 100.3));
+        Customer c1 = new Customer(1,new Position(100.2, 100.2));
+        Customer c2 = new Customer(2,new Position(100.3, 100.3));
 
-        Custumer c3 = new Custumer(3,new Position(200.2, 200.2));
-        Custumer c4 = new Custumer(4,new Position(200.3, 200.3));
+        Customer c3 = new Customer(3,new Position(200.2, 200.2));
+        Customer c4 = new Customer(4,new Position(200.3, 200.3));
 
         Order o1 = new Order(1,r1,c1, LocalDateTime.of(2018,1,1,0,0),LocalDateTime.of(2018,1,1,0,15));
         Order o2 = new Order(2,r1,c2, LocalDateTime.of(2018,1,1,0,0),LocalDateTime.of(2018,1,1,0,30));
@@ -79,11 +79,11 @@ public class VehicleRoutingGATest {
         Restaurant r1 = new Restaurant(1,new Position(100.0, 100.0));
         Restaurant r2 = new Restaurant(2,new Position(200.0, 200.0));
 
-        Custumer c1 = new Custumer(1,new Position(100.2, 100.2));
-        Custumer c2 = new Custumer(2,new Position(100.3, 100.3));
+        Customer c1 = new Customer(1,new Position(100.2, 100.2));
+        Customer c2 = new Customer(2,new Position(100.3, 100.3));
 
-        Custumer c3 = new Custumer(3,new Position(200.2, 200.2));
-        Custumer c4 = new Custumer(4,new Position(200.3, 200.3));
+        Customer c3 = new Customer(3,new Position(200.2, 200.2));
+        Customer c4 = new Customer(4,new Position(200.3, 200.3));
 
         Order o1 = new Order(1,r1,c1, LocalDateTime.of(2018,1,1,0,0),LocalDateTime.of(2018,1,1,0,40));
         Order o2 = new Order(2,r1,c2, LocalDateTime.of(2018,1,1,0,5),LocalDateTime.of(2018,1,1,0,40));
@@ -108,11 +108,11 @@ public class VehicleRoutingGATest {
         Restaurant r1 = new Restaurant(1,new Position(100.0, 100.0));
         Restaurant r2 = new Restaurant(2,new Position(200.0, 200.0));
 
-        Custumer c1 = new Custumer(1,new Position(100.2, 100.2));
-        Custumer c2 = new Custumer(2,new Position(100.3, 100.3));
+        Customer c1 = new Customer(1,new Position(100.2, 100.2));
+        Customer c2 = new Customer(2,new Position(100.3, 100.3));
 
-        Custumer c3 = new Custumer(3,new Position(200.2, 200.2));
-        Custumer c4 = new Custumer(4,new Position(200.3, 200.3));
+        Customer c3 = new Customer(3,new Position(200.2, 200.2));
+        Customer c4 = new Customer(4,new Position(200.3, 200.3));
 
         Order o1 = new Order(1,r1,c1, LocalDateTime.of(2018,1,1,0,0),LocalDateTime.of(2018,1,1,0,15));
         Order o2 = new Order(2,r1,c2, LocalDateTime.of(2018,1,1,0,5),LocalDateTime.of(2018,1,1,0,25));
@@ -137,15 +137,15 @@ public class VehicleRoutingGATest {
         Restaurant r1 = new Restaurant(1,new Position(100.0, 100.0));
         Restaurant r2 = new Restaurant(2,new Position(200.0, 200.0));
 
-        Custumer c1 = new Custumer(1,new Position(100.2, 100.2));
-        Custumer c2 = new Custumer(2,new Position(100.3, 100.3));
+        Customer c1 = new Customer(1,new Position(100.2, 100.2));
+        Customer c2 = new Customer(2,new Position(100.3, 100.3));
 
-        Custumer c3 = new Custumer(3,new Position(200.2, 200.2));
-        Custumer c4 = new Custumer(4,new Position(200.3, 200.3));
-        Custumer c5 = new Custumer(5,new Position(200.2, 200.2));
-        Custumer c6 = new Custumer(6,new Position(200.3, 200.3));
-        Custumer c7 = new Custumer(7,new Position(200.2, 200.2));
-        Custumer c8 = new Custumer(8,new Position(200.3, 200.3));
+        Customer c3 = new Customer(3,new Position(200.2, 200.2));
+        Customer c4 = new Customer(4,new Position(200.3, 200.3));
+        Customer c5 = new Customer(5,new Position(200.2, 200.2));
+        Customer c6 = new Customer(6,new Position(200.3, 200.3));
+        Customer c7 = new Customer(7,new Position(200.2, 200.2));
+        Customer c8 = new Customer(8,new Position(200.3, 200.3));
 
         Order o1 = new Order(1,r1,c1, LocalDateTime.of(2018,1,1,0,0),LocalDateTime.of(2018,1,1,0,15));
         Order o2 = new Order(2,r1,c2, LocalDateTime.of(2018,1,1,0,0),LocalDateTime.of(2018,1,1,0,30));

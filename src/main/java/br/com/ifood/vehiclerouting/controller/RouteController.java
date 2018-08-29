@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +22,7 @@ public class RouteController {
      @Autowired private RouteService routeService;
 
      @ApiOperation("Optmize all pending orders")
-     @GetMapping(value = "/optimize", produces = "application/json")
+     @GetMapping(value = "/optimize", produces = MediaType.APPLICATION_JSON_VALUE)
      public ResponseEntity<ResultVO> optmizeOrders () {
 
           LOGGER.info("Starting optmization");

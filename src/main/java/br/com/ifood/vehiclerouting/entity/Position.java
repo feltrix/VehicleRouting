@@ -1,8 +1,13 @@
 package br.com.ifood.vehiclerouting.entity;
 
+import javax.validation.constraints.NotNull;
+
 public class Position {
-	
+
+	@NotNull
 	private final double lat;
+
+	@NotNull
 	private final double lon;
 
 	public Position() {
