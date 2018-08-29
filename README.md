@@ -6,12 +6,12 @@ Building and running, execute in project directory
 ./gradlew clean build && java -jar build/libs/vehicle-routing-0.0.1-SNAPSHOT.jar
 
 
-After started all endpoints should listed at:
+After started all endpoints should be listed at:
 http://localhost:8080/swagger-ui.html
 
 
 If you want to reduce the response time of the endpoint /routes/optmize
-go on application-context and change:
+go on application-context.properties and change it:
 vr.ga.max-generations=2500 (minimum 500 is recomended)
 
 
