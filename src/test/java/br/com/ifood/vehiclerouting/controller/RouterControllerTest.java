@@ -1,28 +1,13 @@
 package br.com.ifood.vehiclerouting.controller;
 
 
-import br.com.ifood.vehiclerouting.vo.CustomerVO;
-import br.com.ifood.vehiclerouting.vo.OrderVO;
-import br.com.ifood.vehiclerouting.vo.RestaurantVO;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.springframework.http.*;
-import org.springframework.web.client.RestTemplate;
-
-import java.time.LocalDateTime;
-import java.util.stream.Stream;
-
-
 //@RunWith(SpringRunner.class)
 //@SpringBootTest(classes = VehicleRoutingApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 //@AutoConfigureMockMvc
 //@TestPropertySource(locations = "classpath:application-test.properties")
 public class RouterControllerTest {
 
-    //@Autowired
+  /*  //@Autowired
     //private MockMvc mvc;
 
     private ObjectMapper o = new ObjectMapper();
@@ -115,6 +100,6 @@ public class RouterControllerTest {
 
 
 
-    }
+    }*/
 
 }

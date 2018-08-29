@@ -13,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/orders")
@@ -57,6 +58,14 @@ public class OrderController {
     public OrderVO find (@PathVariable final long orderId) {
 
         return new OrderVO(orderService.find(orderId));
+
+    }
+
+    @GetMapping(path = "/pending", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation("Find all pending")
+    public List<Order> findFull () {
+
+        return orderService.findAllPending();
 
     }
 

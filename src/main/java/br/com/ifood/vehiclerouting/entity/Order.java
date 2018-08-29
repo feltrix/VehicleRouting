@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.Date;
 
 @Document(collection = "orders")
 public class Order {
@@ -19,10 +20,14 @@ public class Order {
 	private final Customer customer;
 
 	@Transient
-	private final LocalDateTime pickupDate;
+	private LocalDateTime pickupDate;
+
+	private Date pickup;
 
 	@Transient
-	private final LocalDateTime deliveryDate;
+	private LocalDateTime deliveryDate;
+
+	private Date delivery;
 
 	private long batchId;
 
@@ -47,13 +52,9 @@ public class Order {
 	public Order(OrderVO orderVO, Restaurant restaurant, Customer customer) {
 		this.id = orderVO.getId();
 
-		this.pickupDate = orderVO.getPickup().toInstant()
-				.atZone(ZoneId.systemDefault())
-				.toLocalDateTime();
+		this.pickup = orderVO.getPickup();
 
-		this.deliveryDate = orderVO.getDelivery().toInstant()
-				.atZone(ZoneId.systemDefault())
-				.toLocalDateTime();
+		this.delivery = orderVO.getDelivery();
 
 		this.restaurant = restaurant;
 		this.customer = customer;
@@ -67,10 +68,21 @@ public class Order {
 	}
 
 	public LocalDateTime getPickupDate() {
+		if(pickupDate == null){
+			this.pickupDate = pickup.toInstant()
+					.atZone(ZoneId.systemDefault())
+					.toLocalDateTime();
+		}
 		return pickupDate;
 	}
 
 	public LocalDateTime getDeliveryDate() {
+
+		if(deliveryDate == null){
+			this.deliveryDate = delivery.toInstant()
+					.atZone(ZoneId.systemDefault())
+					.toLocalDateTime();
+		}
 		return deliveryDate;
 	}
 
@@ -84,6 +96,38 @@ public class Order {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Date getPickup() {
+		return pickup;
+	}
+
+	public void setPickup(Date pickup) {
+		this.pickup = pickup;
+	}
+
+	public Date getDelivery() {
+		return delivery;
+	}
+
+	public void setDelivery(Date delivery) {
+		this.delivery = delivery;
+	}
+
+	public long getBatchId() {
+		return batchId;
+	}
+
+	public void setBatchId(long batchId) {
+		this.batchId = batchId;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	@Override

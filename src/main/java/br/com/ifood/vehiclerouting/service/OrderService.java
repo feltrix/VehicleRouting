@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
-import javax.validation.Valid;
+import java.util.List;
 
 @Service
 public class OrderService {
@@ -26,10 +26,15 @@ public class OrderService {
         return orderRepository.insert(order);
     }
 
-    public Order find(@Valid long orderId) {
+    public Order find(long orderId) {
 
         return orderRepository.findById(orderId)
                 .orElseThrow(() -> new ResourceNotFoundRuntimeException("Order", orderId));
+    }
+
+    public List<Order> findAllPending() {
+
+        return orderRepository.findByStatus("PENDING");
     }
 
     public Order update(final Order order) {

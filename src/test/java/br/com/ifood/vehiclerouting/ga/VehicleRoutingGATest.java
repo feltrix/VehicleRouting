@@ -26,7 +26,7 @@ public class VehicleRoutingGATest {
         properties = new GAProperties();
         properties.setCrossoverRate(0.85f);
         properties.setMutationRate(0.01f);
-        properties.setMaxGenerations(1000);
+        properties.setMaxGenerations(500);
         properties.setMaxPopulationSize(100);
         properties.setParallel(true);
         properties.setPool(new ForkJoinPool());
