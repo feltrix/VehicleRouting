@@ -15,29 +15,31 @@ import javax.validation.Valid;
 public class RestaurantController {
 
     @Autowired
-    private RestaurantService RestaurantService;
+    private RestaurantService restaurantService;
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation("Create a new Restaurant")
-    public Restaurant create(@RequestBody @Valid final RestaurantVO restaurantVO) {
+    @ApiOperation("Create a new restaurant")
+    public RestaurantVO create (@RequestBody @Valid final RestaurantVO restaurant) {
 
-        return RestaurantService.create(new Restaurant(restaurantVO));
-
-    }
-
-    @PutMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation("Upadate a new Restaurant by id")
-    public Restaurant update(@RequestBody @Valid final RestaurantVO restaurantVO) {
-
-        return RestaurantService.update(new Restaurant(restaurantVO));
+        return new RestaurantVO(restaurantService.create(new Restaurant(restaurant)));
 
     }
 
-    @GetMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation("Find a Restaurant by id")
-    public Restaurant find(@Valid final long clientId) {
+    @PutMapping(path = "/{restaurantId}",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation("Upadate a new restaurant by id")
+    public RestaurantVO update (@PathVariable final Long restaurantId, @RequestBody @Valid final RestaurantVO restaurant) {
 
-        return RestaurantService.find(clientId);
+        final Restaurant restaurantForUpdate = new Restaurant(restaurant);
+        restaurantForUpdate.setId(restaurantId);
+        return new RestaurantVO(restaurantService.update(restaurantForUpdate));
+
+    }
+
+    @GetMapping(path = "/{restaurantId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation("Find a restaurant by id")
+    public RestaurantVO find (@PathVariable final long restaurantId) {
+
+        return new RestaurantVO(restaurantService.find(restaurantId));
 
     }
 

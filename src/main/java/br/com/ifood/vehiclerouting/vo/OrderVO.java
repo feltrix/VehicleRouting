@@ -1,15 +1,17 @@
 package br.com.ifood.vehiclerouting.vo;
 
+import br.com.ifood.vehiclerouting.entity.Order;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.constraints.NotNull;
+import java.time.ZoneId;
 import java.util.Date;
 
 public class OrderVO {
 
-    @NotNull private Long id;
-    @NotNull private Long restaurant;
+    private Long id;
+    @NotNull private Long restaurantId;
     @NotNull private Long clientId;
 
     @NotNull
@@ -25,14 +27,29 @@ public class OrderVO {
     public OrderVO() {
     }
 
-    public OrderVO(Long id, Long restaurant, Long clientId, Date pickup, Date delivery) {
+    public OrderVO(Long id, Long restaurantId, Long clientId, Date pickup, Date delivery) {
         this.id = id;
-        this.restaurant = restaurant;
+        this.restaurantId = restaurantId;
         this.clientId = clientId;
         this.pickup = pickup;
 
         this.delivery = delivery;
     }
+
+    public OrderVO(Order order) {
+        this.id = order.getId();
+        this.restaurantId = order.getRestaurant().getId();
+        this.clientId = order.getCustumer().getId();
+        this.pickup = Date.from(order.getPickupDate()
+                            .atZone(ZoneId.systemDefault())
+                            .toInstant());
+
+
+        this.delivery = Date.from(order.getDeliveryDate()
+                .atZone(ZoneId.systemDefault())
+                .toInstant());
+    }
+
 
     public Long getId() {
         return id;
@@ -42,12 +59,12 @@ public class OrderVO {
         this.id = id;
     }
 
-    public Long getRestaurant() {
-        return restaurant;
+    public Long getRestaurantId() {
+        return restaurantId;
     }
 
-    public void setRestaurant(Long restaurant) {
-        this.restaurant = restaurant;
+    public void setRestaurantId(Long restaurant) {
+        this.restaurantId = restaurant;
     }
 
     public Long getClientId() {

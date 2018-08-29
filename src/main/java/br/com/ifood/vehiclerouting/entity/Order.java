@@ -4,7 +4,6 @@ import br.com.ifood.vehiclerouting.vo.OrderVO;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 
@@ -12,7 +11,7 @@ import java.time.ZoneId;
 public class Order {
 
 	@Id
-	private final long id;
+	private Long id;
 
 	private final Restaurant restaurant;
 
@@ -27,14 +26,14 @@ public class Order {
 	private String status;
 
 	public Order() {
-		id = 0;
+		id = 0L;
 		restaurant = null;
 		customer = null;
 		pickupDate = null;
 		deliveryDate = null;
 	}
 	
-	public Order(int id, Restaurant restaurant, Customer customer,LocalDateTime pickupDate, LocalDateTime deliveryDate) {
+	public Order(long id, Restaurant restaurant, Customer customer,LocalDateTime pickupDate, LocalDateTime deliveryDate) {
 		this.id = id;
 		this.pickupDate = pickupDate;
 		this.deliveryDate = deliveryDate;
@@ -78,6 +77,10 @@ public class Order {
 	
 	public Customer getCustumer() {
 		return customer;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	@Override

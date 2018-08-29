@@ -1,6 +1,5 @@
 package br.com.ifood.vehiclerouting.entity;
 
-import br.com.ifood.vehiclerouting.vo.CustomerVO;
 import br.com.ifood.vehiclerouting.vo.RestaurantVO;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -10,12 +9,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Restaurant {
 
 	@Id
-	private final long id;
+	private Long id;
 
 	private final Position position;
 
 	public Restaurant() {
-		id = 0;
+		id = 0L;
 		position = null;
 	}
 
@@ -65,4 +64,8 @@ public class Restaurant {
 				", position=" + position +
 				'}';
 	}
+
+    public void setId(long id) {
+        this.id = id;
+    }
 }

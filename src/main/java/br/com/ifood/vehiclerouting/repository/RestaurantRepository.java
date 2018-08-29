@@ -1,4 +1,7 @@
 package br.com.ifood.vehiclerouting.repository;
 
-public class RestaurantRepository {
+import br.com.ifood.vehiclerouting.entity.Restaurant;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface RestaurantRepository extends MongoRepository<Restaurant, Long> {
 }

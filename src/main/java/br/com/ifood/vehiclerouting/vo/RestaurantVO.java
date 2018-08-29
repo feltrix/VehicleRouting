@@ -1,10 +1,11 @@
 package br.com.ifood.vehiclerouting.vo;
 
+import br.com.ifood.vehiclerouting.entity.Restaurant;
+
 import javax.validation.constraints.NotNull;
 
 public class RestaurantVO {
 
-    @NotNull
     private Long id;
 
     @NotNull
@@ -17,10 +18,16 @@ public class RestaurantVO {
     public RestaurantVO() {
     }
 
-    public RestaurantVO(@NotNull Long id, @NotNull Double lon, @NotNull Double lat) {
+    public RestaurantVO(Long id, @NotNull Double lon, @NotNull Double lat) {
         this.id = id;
         this.lon = lon;
         this.lat = lat;
+    }
+
+    public RestaurantVO(Restaurant restaurant) {
+        this.id = restaurant.getId();
+        this.lon = restaurant.getPosition().getLon();
+        this.lat = restaurant.getPosition().getLat();
     }
 
     public Long getId() {
