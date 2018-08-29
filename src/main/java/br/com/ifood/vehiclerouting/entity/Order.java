@@ -2,6 +2,7 @@ package br.com.ifood.vehiclerouting.entity;
 
 import br.com.ifood.vehiclerouting.vo.OrderVO;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
@@ -17,8 +18,10 @@ public class Order {
 
 	private final Customer customer;
 
+	@Transient
 	private final LocalDateTime pickupDate;
 
+	@Transient
 	private final LocalDateTime deliveryDate;
 
 	private long batchId;

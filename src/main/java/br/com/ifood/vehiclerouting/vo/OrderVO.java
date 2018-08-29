@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
 
@@ -36,18 +37,27 @@ public class OrderVO {
         this.delivery = delivery;
     }
 
-    public OrderVO(Order order) {
-        this.id = order.getId();
-        this.restaurantId = order.getRestaurant().getId();
-        this.clientId = order.getCustumer().getId();
-        this.pickup = Date.from(order.getPickupDate()
-                            .atZone(ZoneId.systemDefault())
-                            .toInstant());
-
-
-        this.delivery = Date.from(order.getDeliveryDate()
+    public OrderVO(Long id, Long restaurantId, Long clientId, LocalDateTime pickup, LocalDateTime delivery) {
+        this.id = id;
+        this.restaurantId = restaurantId;
+        this.clientId = clientId;
+        this.pickup = Date.from(pickup
                 .atZone(ZoneId.systemDefault())
                 .toInstant());
+
+        this.delivery = Date.from(delivery
+                .atZone(ZoneId.systemDefault())
+                .toInstant());;
+    }
+
+    public OrderVO(Order order) {
+
+        this(order.getId(),
+                order.getRestaurant().getId(),
+                order.getCustumer().getId(),
+                order.getPickupDate(),
+                order.getDeliveryDate());
+
     }
 
 
