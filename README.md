@@ -17,3 +17,6 @@ vr.ga.max-generations=2500 (minimum 500 is recomended)
 
 start a new thread pool with the number of cpus avaliable to run optmizations
 vr.ga.parallel=true
+
+OBS: This project is configured with an embedded mongodb (in memory).
+Everything that have persisted will be lost after restarting
