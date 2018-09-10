@@ -3,7 +3,7 @@ A micro service Spring Boot app with an genetic algorithm to solve the vehicle r
 
 It was developed for a job interview process
 
-_* Problem description:_
+## Problem description:
 
 It provides the following endpoints with these minimal mandatory attributes:
 - Restaurants: create, update and get by id
@@ -52,7 +52,7 @@ _* Same consideration. The ids are the orders that are picked and delivered in o
 
 
 
-##How to
+## How to
 
 Building and running, execute in project directory
 
@@ -66,7 +66,7 @@ http://localhost:8080/swagger-ui.html
 
 If you want to reduce the response time of the endpoint /routes/optmize
 go to application-context.properties and change it:
-`vr.ga.max-generations=2500 (minimum 500 is recomended)
+`vr.ga.max-generations=2500 (minimum 500 is recomended)`
 
 
 start a new thread pool with the number of cpus avaliable to run optmizations:
